@@ -1,0 +1,15 @@
+version: "3.7"
+
+services:
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    restart: unless-stopped
+    ports:
+      - "1234:3000"
+    volumes:
+      - ./data:/dataset
+      - grafana-storage:/var/lib/grafana
+
+volumes:
+  grafana-storage: {}
